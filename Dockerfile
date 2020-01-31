@@ -10,18 +10,6 @@ RUN mkdir /data
 
 COPY .vimrc /root/.vimrc
 
-# JZON
-ADD https://github.com/apfohl/jzon/archive/v1.0.0.tar.gz /
-RUN tar xf v1.0.0.tar.gz
-RUN make -C jzon-1.0.0 CFLAGS='-std=gnu11 -Os -Wall -Wextra -Wpedantic -Wstrict-overflow' install
-RUN rm -r jzon-1.0.0 v1.0.0.tar.gz
-
-# C HTML Template Library
-ADD https://github.com/apfohl/ctemplate/archive/v1.0.0.tar.gz /
-RUN tar xf v1.0.0.tar.gz
-RUN make -C ctemplate-1.0.0 install
-RUN rm -r ctemplate-1.0.0 v1.0.0.tar.gz
-
 WORKDIR /data
 
-EXPOSE 8088/tcp
+EXPOSE 8080/tcp
